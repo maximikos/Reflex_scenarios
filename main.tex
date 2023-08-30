@@ -1,33 +1,22 @@
-% Author - Max Koslowski; based on LaTeX template from Jon Arnt Kårstad, NTNU IMT
-\documentclass{article}[abstract=off]
-
-% Importing document settings from our file "packages.sty"
+\documentclass{article}
 \usepackage{packages}
-
-% Beginning of document
 \begin{document}
 
-% Inserting title page
 \import{./}{title}
 
-% Defining front matter settings
 \frontmatter
-
-
-% Inserting table of contents
 \tableofcontents
 
-\newpage
-
-% Inserting list of figures & list of tables
-%\listoffigures
-%\listoftables
-
-% Defining main matter settings
 \mainmatter
+\linenumbers
 
-% Introduction
-%\import{./Sections}{Introduction}
+{\huge{\multiTitle}}
+
+\section*{ABSTRACT}
+Socio-ecological systems have long been not accounted for in their full complexity. Wicked problems such as climate change gave rise to the field of sustainability science to do so, with prospective analyses having become an important piece in the repertoire. In this essay, however, I contend that current sustainability scenarios are insufficient in that they are dominated by one model family, highly sensitive to model traits, and biasing the wider sustainability scenario discourse and further modelling efforts. To resolve these issues, I plead for \textit{real} scenarios that are characterised as \textit{complete}, \textit{exhaustive}, and \textit{deeply integrated}. Through the adaptation of these, I claim that the scenario possibility space would be explored more completely, thus allowing for more nuanced responses to wicked problems.
+
+\begin{refsection}
+
 \label{intro}
 \section{An introduction to...}
 
@@ -77,7 +66,7 @@ Today's sustainability scenario-modelling is largely dominated by the IAM commun
 
 On the other hand, these major IAMs have some of the most comprehensive socio-ecological system representations available. Other scenario-modelling approaches that focus only on a subsystem (e.g. a sector, or in terms of a partial equilibrium) might yield inconsistent modelling outcomes and scenario sets. The reason for this is simply that feedback effects (including rebound effects) might not be accounted for, thus potentially resulting in inconsistent dynamics of the system. In addition, insights from such exercises may be hard to compare to the outcomes from more comprehensive (although perhaps coarser) assessments.
 
- Among IAMs, there are great differences in terms of model structures, input assumptions, and model outcomes \parencite{krey_2014,krey_2019,hiroto_2020,keppo_2021}. It may thus happen that one ends up comparing apples and oranges. For example, when a model (say, one relying on intertemporal optimisation) is fundamentally different from another one (e.g. a myopic systems dynamics model), and when their data parameterisations of the same aspects differ, too, one cannot expect to obtain like interpretations for a common exercise.\footnotemark{} Although the issue has already been recognised \parencite{giarola_2021}, there may continue to be cases where modelling outcomes are more sensitive to the choice of IAM than to the input parameterisation \parencite{sognnaes_2021}. At the same time, the case of similar models yielding different results because of only different parameterisations is hardly surprising either. On an even more fundamental level, IAMs might diverge in their worldviews, with many among the cost-optimizing frameworks following neoclassical assumptions. Well-known problematic aspects following from these worldviews often include the application of discount rates \parencite{emmerling_2019}, non-coverage  of capital trade (because of the otherwise occurring Lucas paradox \parencite{lucas_1990,keppo_2021}), a disregard for emerging behaviours \parencite{farmer_2015}, or unrealistic behavioural assumptions \parencite{asefi_2021}. Another issue is certainly when input or output parameters from one model (which might be based on neoclassical assumptions) are uncritically adopted by other modelling efforts that might have entirely different (and thus inconsistent) assumptions (e.g. post-Keynesian) - or where even the parameter sets are contradictory for some variables. It is even more problematic when results from these secondary efforts might find their way back again into the first set of models, thus creating a wild mix in terms of assumptions and parameterisations.\footnotemark{}
+    Among IAMs, there are great differences in terms of model structures, input assumptions, and model outcomes \parencite{krey_2014,krey_2019,hiroto_2020,keppo_2021}. It may thus happen that one ends up comparing apples and oranges. For example, when a model (say, one relying on intertemporal optimisation) is fundamentally different from another one (e.g. a myopic systems dynamics model), and when their data parameterisations of the same aspects differ, too, one cannot expect to obtain like interpretations for a common exercise.\footnotemark{} Although the issue has already been recognised \parencite{giarola_2021}, there may continue to be cases where modelling outcomes are more sensitive to the choice of IAM than to the input parameterisation \parencite{sognnaes_2021}. At the same time, the case of similar models yielding different results because of only different parameterisations is hardly surprising either. On an even more fundamental level, IAMs might diverge in their worldviews, with many among the cost-optimizing frameworks following neoclassical assumptions. Well-known problematic aspects following from these worldviews often include the application of discount rates \parencite{emmerling_2019}, non-coverage  of capital trade (because of the otherwise occurring Lucas paradox \parencite{lucas_1990,keppo_2021}), a disregard for emerging behaviours \parencite{farmer_2015}, or unrealistic behavioural assumptions \parencite{asefi_2021}. Another issue is certainly when input or output parameters from one model (which might be based on neoclassical assumptions) are uncritically adopted by other modelling efforts that might have entirely different (and thus inconsistent) assumptions (e.g. post-Keynesian) - or where even the parameter sets are contradictory for some variables. It is even more problematic when results from these secondary efforts might find their way back again into the first set of models, thus creating a wild mix in terms of assumptions and parameterisations.\footnotemark{}
 
 \footnotetext{On that note, it need be mentioned that the selective use of some scenarios and their (mis)interpretation is a topic in itself which has been addressed multiple times already \parencite{pielke_2021}, e.g. regarding the use of RCP8.5 as a baseline scenario \parencite{hausfather_2020}.}
 
@@ -96,7 +85,7 @@ As of now, IAMs are our best shot to tackle large-scale (or even wicked) problem
 
 With \textit{real} I do not mean realistic scenarios (nor even plausible ones, for that matter). Rather, we have seen great transformations in human history before \parencite{fischer_2014} so that I believe that scenario-modelling exercises should account for possible (again, not necessarily plausible from the current viewpoint), disruptive developments in the future.\footnotemark{} Support for this view comes also from within the IAM community. For example, \textcite{mccollum_2020} argue that IAMs should more vehemently explore extreme scenarios so as to account for transient (i.e. low-probability) events (e.g. sudden and widespread recessions), disruptive drivers (e.g. disintegration of political alliances), and unexpected outcomes (e.g. technological change). \textcite{gambhir_2022} point out that current IAMs do not allow for such a more complete exhaustion of the possibility space. Of course, a full exploration of the scenario space is virtually impossible, but I would nevertheless urge for a \textit{fuller} exploration than what is currently done. This relies on three points that I shall briefly explain in the following.
 
-\footnotetext{Even if one disregards the great transitions of the past, one only has to consider the fact that current scenario models of global change explore the future to the year 2100 - if we just look back at what the world was like 80 years or so ago, still in the middle of WWII, one might realise that drastic changes have happened that were hard to foresee back then. Hence, more or less linear extrapolations of current conditions and thinking are grossly inappropriate, thus essentially ruling out all approaches that envision a future strongly based on the past. This is the case for practically all approaches based on statistical learning methods and for narratives that stick too closely to past experiences.}
+\footnotetext{Even if one disregards the great transitions of past centuries and millennia, one only has to consider the fact that current scenario models of global change explore the future to the year 2100 - if we just look back at what the world was like 80 years or so ago, still in the middle of WWII, one might realise that drastic changes have happened that were hard to foresee back then. Hence, more or less linear extrapolations of current conditions and thinking are grossly inappropriate, thus essentially ruling out all approaches that envision a future strongly based on the past. This is the case for practically all approaches based on statistical learning methods and for narratives that stick too closely to past experiences.}
 
 First, each individual scenario must be \textit{complete}. With that I mean that a scenario must fully and transparently represent the entire system, not only a subsystem. This does not mean that every model employed necessarily has to be capable of a quantitative full system coverage; rather, the model must respect fundamental principles such as thermodynamic laws and produce a scenario that is in so far consistent and coherent as that feedback effects are sufficiently accounted for and that no contradictions are prevalent, both regarding its implementation and the narrative that it is based on.
 
@@ -113,15 +102,38 @@ Concluding, socio-ecological systems are more flexible and thus exhibit more deg
 
 %It might be interesting to highlight the following point a little more, which is phrased for economic models but would similarly apply to IAMs etc: "that economic models are policy tools with both an overt objective function and a covert political function" and thus actively shape the political discourse and policies \url{https://www.tandfonline.com/doi/full/10.1080/13563467.2023.2172147?src}. While the intentions might be good, unreflected model set-up and use may have serious consequences.
 
-% Printing bibliography
-\newpage
-%\emergencystretch=1em %reduces the overfull \hbox warnings
+
 \newrefcontext[sorting=nyt] % sort the paper by name, year, title
-\printbibliography[heading = bibintoc, title = Bibliography]    % 'bibintoc' inserts our bibliography into the table of contents
+\printbibliography[heading = bibintoc] % 'bibintoc' inserts our bibliography into the table of contents
 
+\end{refsection}
+
+%%%%%%%%%%%%%%
+% Appendix
 % Inserting appendix with separate settings
-%\addappendix
-%\import{./Appendices/}{example_appendix}
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{A-\arabic{page}}
+\linenumbers*
+\addappendix
 
-% End of document
+%Reset numbering of tables and equations in appendix, starting with A.
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\theequation}{A.\arabic{equation}}
+\setcounter{equation}{0}
+
+\begin{refsection}
+\section*{Appendix A}
+BLABLA
+
+\section*{Appendix B}
+blabla \parencite{leontief_1936}
+
+\nolinenumbers
+\newpage
+\newrefcontext[sorting=nyt] % sort the paper by name, year, title
+\printbibliography[title = References in appendix]
+
+\end{refsection}
 \end{document}

@@ -1,15 +1,12 @@
-% Author - Jon Arnt Kårstad, NTNU IV-IMT
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{packages}[2021/04/20 Packages]
+\ProvidesPackage{packages}[2023/08/15 Packages]
 \usepackage[utf8]{inputenc} % Character encoding
+\usepackage[T1]{fontenc}
+\usepackage{lineno}
 
 % ------ Contents -------
-% Abstract
 % Appendices
 % Bibliography & References
-% Code input
-% Flow charts
 % Front matter
 % General
 % Image
@@ -19,13 +16,6 @@
 % Page setup
 % Tables
 % -----------------------
-
-
-% --- Abstract ---
-\usepackage{abstract}
-%\renewcommand{\abstractname}{summary}    % clear the title
-%\renewcommand{\absnamepos}{empty} % originally center
-
 
 % --- Appendices ---
 \usepackage{appendix}
@@ -42,34 +32,15 @@
             style = apa, %authoryear-comp,    % Close to the 'Harvard' referencing style
             urldate = long,     % Long: 24th Mar. 1997 | Short: 24/03/1997
             maxcitenames = 2,   % Number of authors in cite before replaced with 'Author#1 et al.'
-            sorting = ynt       % Sort by year, name, title.
+            sorting = ynt       % Sort by year, name, title. Mind the adjustment for bibliography in main.tex
             ]{biblatex}
 \DeclareFieldFormat{apacase}{#1}
 \addbibresource{references.bib}     % Adding our file containing the references
-% \addbibresource{reference_2.bib} is possible if we want to add several reference files
-%\usepackage{biblatex}    %for natural citation
-%\addbibresource{references.bib}
-%\bibliographystyle{abbrvnat}
 
 \usepackage{caption}        % Enables controlling the look and feel of captions, see package documentation
 \usepackage{subcaption}     % Recommended when making sub-figures
 \usepackage[nottoc]{tocbibind}  % Includes Bibliography, Index, list of Listing etc. to table of contents
 \newcommand{\source}[1]{\vspace{-4pt} \caption*{\hfill \footnotesize{Source: {#1}} } }   % Easily insert sources in images
-
-% --- Code ---
-\usepackage{minted} % Includes several programming languages and styles, visit --https://www.ntnu.no/wiki/display/imtsoftware/Code+in+LaTeX-- for more information and examples
-
-% --- Flow Charts ---
-% Keep in mind that you may customize these flow chart settings to fit your own preferences.
-\usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-    minimum height=2em]
 
 % --- Front matter ---
 % Front matter is located before the table of contents, e.g. preface (Norsk: forord) and often has separate settings
@@ -86,12 +57,16 @@
     citecolor = black,
     filecolor = black,
     linkcolor = black,
-    urlcolor = black
+    urlcolor = blue
 }
 \usepackage{microtype}
 \usepackage{comment}    % Comment blocks of text using \begin{comment} ... \end{comment}
 \usepackage{pdfpages}   % Enables import of pdf-pages using e.g. \includepdf[pages=-]{./my_pdf.pdf}
-\usepackage[defaultlines=2,all]{nowidow} %prevents widow and orphan lines on pages
+\usepackage{authblk}    % Author and affiliation handling on title page
+% line numbers
+\usepackage{lineno}  % Line numbers
+\usepackage{seqsplit}   % Split long sequence of characters or numbers
+\usepackage{xurl}
 
 % --- Image ---
 \usepackage{graphicx}   % Handle images
@@ -134,8 +109,9 @@
 \usepackage{yhmath}     %wide hats
 
 \usepackage{chngcntr}
-\counterwithin{equation}{subsection}   %allows section-specific equation-numbers
-\setlength{\jot}{3ex}   % vertical spacing of multiline equations, from here: https://latex.org/forum/viewtopic.php?t=26506
+\counterwithin{equation}{section}   %allows section-specific equation-numbers
+\setlength{\jot}{2ex}   % vertical spacing of multiline equations, from here: https://latex.org/forum/viewtopic.php?t=26506
+\usepackage{optidef}    %neat formulation of optimisation problems
 
 % --- Page setup ---
 \usepackage[a4paper, total={150mm, 245mm,footskip = 14mm}]{geometry}
@@ -144,12 +120,11 @@
 
 % --- Customized header and footer ---
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0.1ex}
-\renewcommand{\footrulewidth}{0.1ex}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\renewcommand{\headrulewidth}{0.1ex}
+%\renewcommand{\footrulewidth}{0.1ex}
 \fancyfoot[C]{\thepage}
-\usepackage[bottom]{footmisc} %fix footnote to bottom
 
 % --- Tables ----
 \usepackage{rotating}
@@ -157,6 +132,13 @@
 \usepackage{hhline}
 \usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[para]{threeparttable}
+\usepackage{tablefootnote} % for table footnotes
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup[table]{justification=raggedright,singlelinecheck=off}
 
 % --- List ---
 \usepackage{pifont}
@@ -165,3 +147,41 @@
 \newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
 
 \usepackage{eurosym} %for the euro symbol
+
+% --- Titles ---
+\RequirePackage[explicit]{titlesec}
+\titleformat{\section}
+  {\large\sffamily\bfseries}
+  {\thesection}
+  {0.5em}
+  {#1}
+  []
+\titleformat{name=\section,numberless}
+  {\large\sffamily\bfseries}
+  {}
+  {0em}
+  {#1}
+  []  
+\titleformat{\subsection}
+  {\sffamily\bfseries}
+  {\thesubsection}
+  {0.5em}
+  {#1}
+  []
+\titleformat{\subsubsection}
+  {\sffamily\small\bfseries\itshape}
+  {\thesubsubsection}
+  {0.5em}
+  {#1}
+  []    
+\titleformat{\paragraph}[runin]
+  {\sffamily\small\bfseries}
+  {}
+  {0em}
+  {#1} 
+\titlespacing*{\section}{0pc}{3ex \@plus4pt \@minus3pt}{5pt}
+\titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{0pt}
+\titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{0pt}
+\titlespacing*{\paragraph}{0pc}{1.5ex \@plus2pt \@minus1pt}{10pt}
+
+\newcommand{\multiTitle}{A criticism of conventional and a plea for \textit{real} scenarios}
